@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NCReport version="2.20.3" name="CourseProject_Report" type="report">
+    <options>
+        <encoding>UTF-8</encoding>
+        <language>00</language>
+        <langrole>0</langrole>
+        <orientation>portrait</orientation>
+        <pagesize width="210.000" height="297.000">A4</pagesize>
+        <topmargin>15</topmargin>
+        <bottommargin>15</bottommargin>
+        <leftmargin>20</leftmargin>
+        <rightmargin>20</rightmargin>
+        <backcolor>#ffffff</backcolor>
+        <columns>0</columns>
+        <columnspace>0</columnspace>
+        <zoneSpacing>0</zoneSpacing>
+        <zoneBreak>false</zoneBreak>
+        <varErrorAlert>false</varErrorAlert>
+        <fontname>Liberation Sans</fontname>
+        <fontsize>10</fontsize>
+        <fontstyle></fontstyle>
+        <htmlBodyStyle>{DEFAULT}</htmlBodyStyle>
+        <labelColumnCount>0</labelColumnCount>
+        <labelRowCount>0</labelRowCount>
+        <labelHGap>0</labelHGap>
+        <labelVGap>0</labelVGap>
+        <labelWidth>0</labelWidth>
+        <labelHeight>0</labelHeight>
+        <labelDirection>horizontal</labelDirection>
+    </options>
+    <datasources>
+        <datasource id="runs_general" allowEmpty="true" enabled="true" type="sql" openRole="begin" source="static" connection="external" connID="" host="bus-stops-db.ccqa5cns6u8c.eu-central-1.rds.amazonaws.com" database="busstopsdb" user="masterStudent" password="timursanek2017" port="" driver="QPSQL">SELECT &quot;Id&quot;, run_arrival_point, run_depature_point, run_arrival_time, run_depature_time, busrunsdb.run_costs(&quot;Id&quot;) as run_costs FROM busrunsdb.runs_general
+WHERE busrunsdb.run_status(&quot;Id&quot;)=2
+ORDER BY run_arrival_time DESC;</datasource>
+    </datasources>
+    <variables/>
+    <scripts/>
+    <pageheader id="PH" height="20.955">
+        <label id="OLF6E" zValue="0" posX="1.270" posY="11.430" width="5.080" height="3.810" fontName="Liberation Sans" fontSize="10" alignment="132">#</label>
+        <label id="5Z0JD" zValue="1" posX="7.620" posY="11.430" width="33.020" height="3.810" fontName="Liberation Sans" fontSize="10" alignment="132">Arrival</label>
+        <label id="2DA8H" zValue="2" posX="41.910" posY="11.430" width="33.020" height="3.810" fontName="Liberation Sans" fontSize="10" alignment="132">Departure</label>
+        <label id="D58J4" zValue="3" posX="76.200" posY="11.430" width="29.210" height="3.810" fontName="Liberation Sans" fontSize="10" alignment="132">Arrival Time</label>
+        <label id="S9CR9" zValue="4" posX="106.680" posY="11.430" width="31.750" height="3.810" fontName="Liberation Sans" fontSize="10" alignment="132">Departure Time</label>
+        <line id="HHADC" zValue="5" lineColor="#000000" lineStyle="solid" lineWidth="0.100" fromX="0.000" fromY="17.780" toX="170.180" toY="17.780"/>
+        <label id="I0MYA" zValue="6" posX="46.990" posY="2.540" width="72.390" height="4.868" fontName="Liberation Sans" fontSize="16" fontWeight="bold" alignment="132">List of all runs</label>
+        <label id="7T7UH" zValue="7" posX="139.700" posY="11.430" width="25.400" height="3.810" fontName="Liberation Sans" fontSize="10" alignment="132">Run Costs</label>
+    </pageheader>
+    <pagefooter id="PF" height="73.872"/>
+    <details>
+        <detail id="Detail1" height="4.657" datasource="runs_general">
+            <items>
+                <field id="4BZLT" zValue="0" posX="0.000" posY="0.000" width="5.080" height="3.810" resource="datasource" fontName="Liberation Sans" fontSize="10" alignment="132" type="num" ftype="ds">runs_general.Id</field>
+                <field id="XDS3A" zValue="1" posX="7.620" posY="0.000" width="33.020" height="3.810" resource="datasource" fontName="Liberation Sans" fontSize="10" alignment="132" type="txt" ftype="ds">runs_general.run_arrival_point</field>
+                <field id="174B6" zValue="2" posX="41.910" posY="0.000" width="33.020" height="3.810" resource="datasource" fontName="Liberation Sans" fontSize="10" alignment="132" type="txt" ftype="ds">runs_general.run_depature_point</field>
+                <field id="GIJVI" zValue="3" posX="76.200" posY="0.000" width="29.210" height="3.810" resource="datasource" fontName="Liberation Sans" fontSize="10" alignment="132" type="datetime" ftype="ds" dateFormat="">runs_general.run_arrival_time</field>
+                <field id="0HQ4P" zValue="4" posX="106.680" posY="0.000" width="31.750" height="3.810" resource="datasource" fontName="Liberation Sans" fontSize="10" alignment="132" type="datetime" ftype="ds" dateFormat="">runs_general.run_depature_time</field>
+                <field id="BCE39" zValue="5" posX="139.700" posY="0.000" width="25.400" height="3.810" resource="datasource" fontName="Liberation Sans" fontSize="10" forecolor="#000000" type="txt" ftype="ds">runs_general.run_costs</field>
+            </items>
+        </detail>
+    </details>
+</NCReport>
